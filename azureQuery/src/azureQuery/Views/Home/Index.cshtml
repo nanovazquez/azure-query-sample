@@ -1,0 +1,106 @@
+﻿<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <div class="left">
+                <img class="logo" src="~/Images/azurequery.png" alt="" />
+            </div>
+            <div class="right">
+                <h1>Welcome to azureQuery!</h1><br />
+                Use this dashboard to perform simple testing of azureQuery.<br />
+                Run <a href="/test/">Unit Tests</a>.
+        </div>
+    </div>
+</header>
+<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+
+        <input type="checkbox" id="allowDeletes" style="width: auto" onchange="checkAllowDeletes()" /><label for="allowDeletes">allow deletes</label><br />
+
+        <table>
+            <tr>
+                <td>
+                    <h3>Containers</h3>
+                    c:<input type="text" id="containerSelection" value="" />
+                    <button onclick="listContainers()">List</button>
+                    <button onclick="createContainer()">Create</button>
+                    <button onclick="removeContainers()">Remove</button>
+                </td>
+                <td>
+                    <h3>Blobs</h3>
+                    c:<input type="text" id="containerName" value="test" />
+                    b:<input type="text" id="blobsFilter" value="" />
+                    <button onclick="listBlobs()">List</button>
+                    <button onclick="createBlob()">Create</button>
+                    <button onclick="removeBlob()">Remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td><div id="containerList" class="results" /></td>
+                <td><div id="blobList" class="results" /></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <h3>Text Blob</h3>
+                    c:<input type="text" id="textContainerName" value="test" />&nbsp;
+                    b:<input type="text" id="textBlobName" value="test.txt" /><br />
+                    <button onclick="getBlobText()">Get Blob (Text)</button>
+                    <button onclick="putBlobText()">Put Blob (Text)</button>
+
+                </td>
+                <td>
+                    <h3>Binary Blob</h3>
+                    c:<input type="text" id="bytesContainerName" value="test" />&nbsp;
+                    b:<input type="text" id="bytesBlobName" value="test.dat" /><br />
+                    <button onclick="getBlobBytes()">Get Blob (Bytes)</button>
+                    <button onclick="putBlobBytes()">Put Blob (Bytes)</button>
+                </td>
+                <td>
+                    <h3>JSON Blob</h3>
+                    c:<input type="text" id="jsonContainerName" value="test" />&nbsp;
+                    b:<input type="text" id="jsonBlobName" value="test.json" /><br />
+                    <button onclick="getBlobJson()">Get Blob (JSON)</button>
+                    <button onclick="putBlobJson()">Put Blob (JSON)</button>
+                </td>
+            </tr>
+            <tr>
+                <td><div id="blobText" contenteditable="true" class="results" style="background: white" /></td>
+                <td><div id="blobBytes" contenteditable="true" class="results" style="background: white" /></td>
+                <td><div id="blobJson" contenteditable="true" class="results" style="background: white" >{<br />
+    "employees": [
+    { "firstName":"John" , "lastName":"Doe" },<br />
+    { "firstName":"Anna" , "lastName":"Smith" },<br />
+    { "firstName":"Peter" , "lastName":"Jones" }<br />
+    ]<br />
+ }</div></td>
+            </tr>
+        </table>
+
+
+@*        <h3>
+            We suggest the following steps:</h3>
+        <ol class="round">
+            <li class="one">
+                <h5>
+                    Getting Started
+                </h5>
+                ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+                a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+                is an ideal platform for building RESTful applications on the .NET Framework. <a href="http://go.microsoft.com/fwlink/?LinkId=245160">Learn
+                    more</a> </li>
+            <li class="two">
+                <h5>
+                    Add NuGet packages and jump start your coding</h5>
+                NuGet makes it easy to install and update free libraries and tools. <a href="http://go.microsoft.com/fwlink/?LinkId=245161">
+                    Learn more</a></li>
+            <li class="three">
+                <h5>
+                    Find Web Hosting</h5>
+                You can easily find a web hosting company that offers the right mix of features
+                and price for your applications. <a href="http://go.microsoft.com/fwlink/?LinkId=245164">Learn
+                    more</a></li>
+        </ol>*@
+    </section>
+</div>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" type="text/css" media="screen">  
+    <script src="~/Scripts/jquery-1.6.2.js"></script>
+    @*<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js"></script>  *@
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    
+    
+    <script src="~/Scripts/json2.js"></script>
+
+    <script src="~/Scripts/azureQuery.js"></script>
+
+    <script src="~/Scripts/tests.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+
+    <!-- deflate.js courtesy of http://www.codeproject.com/Articles/26980/Binary-Formats-in-JavaScript-Base64-Deflate-and-UT -->
+    <script src="~/Scripts/deflate.js"></script> 
+    
+    <script src="~/Scripts/default.js"></script>
+</body>
+</html>
