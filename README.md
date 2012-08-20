@@ -1,4 +1,4 @@
 azure-query-sample
 ==================
 
-A sample of using azureQuery to display blobs in a Windows Azure storage account in a treeView
+A sample app that uses azureQuery to display blobs within a Windows Azure storage account in a TreeView.
