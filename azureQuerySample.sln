@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "azureQuerySample", "azureQuerySample\azureQuerySample.csproj", "{E653073D-AE0E-40CA-9619-EBF05A7439BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "azureQueryLib", "azureQuery\src\azureQueryLib\azureQueryLib.csproj", "{663D562A-2052-408A-B591-8B360BAD4C03}"
