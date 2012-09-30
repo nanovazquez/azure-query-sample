@@ -1,19 +1,22 @@
-var InitTreeHelper = (function () {
+var TreeHelper = function (folderIconUrl, fileIconUrl) {
+    this.folderIconUrl = folderIconUrl || ''; // I prefer the default icon for the folders (instead of the 'Scripts/jstree/_demo/folder.png' image)
+    this.fileIconUrl = fileIconUrl || 'Scripts/jstree/_demo/file.png';
+    this.treeData = [];
+};
 
-    var treeData = [];
+TreeHelper.prototype = (function () {
 
-    var folderIconUrl = ""; // I prefer the 'default icon' for the folders (instead of "Scripts/jstree/_demo/folder.png")
-    var fileIconUrl = "Scripts/jstree/_demo/file.png";
-    var createNode = function (name, isFile) {
+    var createNode = function (name, iconUrl) {
         return {
-            "data": {
-                "title": name,
-                "icon": isFile ? fileIconUrl : folderIconUrl
+            'data': {
+                'title': name,
+                'icon': iconUrl
             },
-            "children": []
+            'children': []
         };
     };
-    var getNodeByTitleIn = function (nodeTitle, collection) {
+
+    var getNodeByTitle = function (nodeTitle, collection) {
         var toReturn = null;
         collection.forEach(function (item, index) {
             if (item.data.title === nodeTitle) {
@@ -27,17 +30,18 @@ var InitTreeHelper = (function () {
     var addNode = function (nodeFullPath, currentParent) {
 
         var nodes = nodeFullPath.split('/');
+        var self = this;
 
         // create a node for each split
         nodes.forEach(function (item, index) {
 
             // in case we're dealing with a root node (parent is null)
-            var siblings = (currentParent && currentParent.children) ? currentParent.children : treeData;
-            var node = getNodeByTitleIn(item, siblings);
-            
+            var siblings = (currentParent && currentParent.children) ? currentParent.children : self.treeData;
+            var node = getNodeByTitle(item, siblings);
+
             if (node == null) {
                 var isLeaf = (index + 1 == nodes.length);
-                node = createNode(item, currentParent && isLeaf);
+                node = createNode(item, (currentParent && isLeaf) ? self.fileIconUrl : self.folderIconUrl);
                 siblings.push(node);
             }
 
@@ -47,6 +51,6 @@ var InitTreeHelper = (function () {
 
     return {
         addNode: addNode,
-        getTreeData: function () { return treeData; }
+        getTreeData: function () { return this.treeData; }
     }
-});
+})();

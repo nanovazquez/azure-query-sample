@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.min.js")
 </head>
 <body>
-    @RenderBody()
-
-    @Scripts.Render("~/bundles/jquery")
+    <h2>@ViewBag.Title</h2>
+    <div class="body">
+        @RenderBody()
+    </div>
     @RenderSection("scripts", required: false)
 </body>
 </html>

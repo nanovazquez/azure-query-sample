@@ -1,39 +1,33 @@
 ﻿@{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "azureQuery sample";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-<h2>azureQuery sample</h2>
 
 <div class="tree-view">
 </div>
 
 @section scripts{
-
+    
     <!-- azureQuery script -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/azure-query/azureQuery.js")"></script>
-
+    
     <!-- jsTree script -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/jstree/jquery.jstree.js")"></script>
-
+    
     <!-- jsTree custom helper -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/jstree/jstree-helper.js")"></script>
-
+    
     <script type="text/javascript">
         $(function () {
-            
+
+            var treeHelper = new TreeHelper();
+
             var getData = function () {
-            
-                var treeHelper = InitTreeHelper();
 
                 // retrieve all containers in the storage account
                 aq.storage().containers().each(function (container) {
 
-                    // add the container in the data
-                    treeHelper.addNode(container.name);
-
-                    // retrieve all blobs within the container
+                    // retrieve all blobs inside the container
                     aq.storage().containers(container.name).blobs().each(function (blob) {
                         treeHelper.addNode(blob.containerName + "/" + blob.name);
                     });
